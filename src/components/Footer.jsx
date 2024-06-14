@@ -17,8 +17,8 @@ const Footer = () => {
           <a href="/Faq" className="footer-link">FAQ</a>
           <a href="/Addiction" className="footer-link">Game Addiction</a>
           <a href="/Terms" className="footer-link">Terms & Conditions</a>
-          
         </div>
+        
         <div className="footer-payments">
           <h4>Payment Options</h4>
           <img src={object8} alt="Payment Options" className="payment-options-image" />
@@ -28,6 +28,19 @@ const Footer = () => {
           <img src={object9} alt="DreamSport" className="footer-logo-image" />
         </div>
       </div>
+
+      {/* Disclaimer Section */}
+      <div className="footer-disclaimer">
+      <h2>DISCLAIMER</h2>
+        <p>
+          Geographical Restrictions Location Compliance: Our platform is not accessible from states where DFS is prohibited, including Andhra Pradesh, Assam, Nagaland, Odisha, Sikkim, and Telangana.
+          <br />
+          This game involves an element of financial risk and may be addictive. Please play responsibly at your own work.
+          <br />
+          © 2024 PRO GO. All rights reserved.
+        </p>
+      </div>
+
       <div className="footer-policies">
         <a href="/" className="footer-policy">100% Legal & Secure</a>
         <a href="/" className="footer-policy">24x7 Customer Support</a>

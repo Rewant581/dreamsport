@@ -1,133 +1,158 @@
 .promo-offer-section {
-    padding: 3rem 5%;
-    background-color: #ffffff; /* White background for a clean look */
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .promo-offer-title {
-    font-size: 1.5rem;
-    color: #2c3e50; /* Dark color for the title */
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
+  padding: 2rem 5%;
+  background-color: #ffffff;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.promo-offer-title {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.promo-offer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem; /* Add gap to control space between items */
+}
+
+.promo-text {
+  max-width: 40%;
+  text-align: left;
+  margin: 0;
+}
+
+.offer-heading {
+  font-size: 2rem;
+  color: #f39c12;
+  margin-bottom: 1rem;
+}
+
+.offer-subheading {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.bonus-text {
+  font-size: 1.5rem;
+  color: #e74c3c;
+  margin-bottom: 1rem; /* Reduce bottom margin */
+}
+
+.cta-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 0.5rem; /* Add top margin for space */
+}
+
+.cta-button:hover {
+  background-color: #2980b9;
+}
+
+.promo-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.whatsapp-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem; /* Reduce top margin */
+}
+
+.whatsapp-icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  margin-right: 0.5rem; /* Reduced margin for cleaner look */
+}
+
+.whatsapp-text {
+  font-size: 1.2rem;
+  color: #2c3e50;
+}
+
+@media (max-width: 1024px) {
   .promo-offer-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  
-  .promo-text {
-    max-width: 40%;
-    text-align: left;
-  }
-  
-  .offer-heading {
-    font-size: 2rem;
-    color: #f39c12; /* Gold color for emphasis */
-    margin-bottom: 1rem;
-  }
-  
-  .offer-subheading {
-    font-size: 1.2rem;
-    color: #2c3e50;
-    margin-bottom: 0.5rem;
-  }
-  
-  .bonus-text {
-    font-size: 1.5rem;
-    color: #e74c3c; /* Red color for the bonus text */
-    margin-bottom: 1.5rem;
-  }
-  
-  .cta-button {
-    background-color: #3498db;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .cta-button:hover {
-    background-color: #2980b9;
-  }
-  
-  .promo-image img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-  }
-  
-  .whatsapp-section {
-    display: flex;
-    align-items: center;
     justify-content: center;
-    margin-top: 2rem;
+    gap: 1rem; /* Adjust gap for tablet screens */
   }
-  
+
+  .promo-text {
+    max-width: 50%;
+    text-align: center;
+    margin: 0.5rem 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .promo-text {
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .promo-offer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem; /* Adjust gap for mobile screens */
+  }
+
+  .whatsapp-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .whatsapp-icon {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    margin-right: 1rem;
+    margin-right: 0; /* Remove extra space */
   }
-  
+
   .whatsapp-text {
+    margin-top: 0.5rem; /* Reduced space for tighter layout */
+  }
+}
+
+@media (max-width: 480px) {
+  .promo-offer-title {
     font-size: 1.2rem;
-    color: #2c3e50;
   }
-  
-  @media (max-width: 768px) {
-    .promo-text {
-      max-width: 90%;
-      text-align: center;
-    }
-  
-    .promo-offer-content {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .whatsapp-section {
-      flex-direction: column;
-    }
-  
-    .whatsapp-text {
-      margin-top: 1rem;
-    }
+
+  .offer-heading {
+    font-size: 1.5rem;
   }
-  
-  @media (max-width: 480px) {
-    .promo-offer-title {
-      font-size: 1.2rem;
-    }
-  
-    .offer-heading {
-      font-size: 1.5rem;
-    }
-  
-    .offer-subheading {
-      font-size: 1rem;
-    }
-  
-    .bonus-text {
-      font-size: 1.2rem;
-    }
-  
-    .cta-button {
-      padding: 0.5rem 1rem;
-      font-size: 0.9rem;
-    }
-  
-    .whatsapp-icon {
-      width: 40px;
-      height: 40px;
-    }
+
+  .offer-subheading {
+    font-size: 1rem;
   }
-  
+
+  .bonus-text {
+    font-size: 1.2rem;
+  }
+
+  .cta-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .whatsapp-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .whatsapp-text {
+    font-size: 1rem; /* Adjust font size for better readability on small screens */
+  }
+}
