@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Banner.css';
 
 const Banner = () => {
@@ -9,6 +9,15 @@ const Banner = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Check if a user is already logged in
+    const userLoggedIn = localStorage.getItem('userLoggedIn');
+    if (userLoggedIn) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   const handleDownload = () => {
     const link = document.createElement('a');
@@ -17,9 +26,6 @@ const Banner = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-
-    // Redirect to the banner page (home page)
-    window.location.href = '/';
   };
 
   const handleTitleClick = (e) => {
@@ -30,6 +36,8 @@ const Banner = () => {
   const handleSignUpSubmit = (e) => {
     e.preventDefault();
     console.log('Sign Up:', { username, email, password });
+    localStorage.setItem('userLoggedIn', true); // Mark user as logged in
+    setIsLoggedIn(true);
     setShowSignUpModal(false);
     setShowLoginModal(true); // Show login modal after closing the sign-up modal
   };
@@ -37,6 +45,8 @@ const Banner = () => {
   const handleLoginSubmit = (e) => {
     e.preventDefault();
     console.log('Login:', { username, password });
+    localStorage.setItem('userLoggedIn', true); // Mark user as logged in
+    setIsLoggedIn(true);
     setShowLoginModal(false);
     setShowLoginSuccess(true);
   };
@@ -51,6 +61,15 @@ const Banner = () => {
     handleDownload();
   };
 
+  // Redirect to homepage if already logged in and trying to open login or sign-up modals
+  if (isLoggedIn) {
+    if (showLoginModal || showSignUpModal) {
+      setShowLoginModal(false);
+      setShowSignUpModal(false);
+      window.location.href = '/';
+    }
+  }
+
   return (
     <div className="banner">
       <div className="banner-content">
@@ -59,8 +78,12 @@ const Banner = () => {
         
         <div className="call-to-action">
           <button className="cta-button" onClick={handleDownload}>Download the App</button>
-          <button className="cta-button" onClick={() => setShowLoginModal(true)}>Login</button>
-          <button className="cta-button" onClick={() => setShowSignUpModal(true)}>Sign Up</button>
+          {!isLoggedIn && (
+            <>
+              <button className="cta-button" onClick={() => setShowLoginModal(true)}>Login</button>
+              <button className="cta-button" onClick={() => setShowSignUpModal(true)}>Sign Up</button>
+            </>
+          )}
         </div>
       </div>
 
