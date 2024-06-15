@@ -1,10 +1,16 @@
+/* Ensuring smooth scrolling across the site */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Banner styles */
 .banner {
   position: relative;
   width: 100%;
-  height: 75vh; /* Ensures full visibility and responsiveness */
+  height: 75vh; /* Adjusted height for better visibility */
   background: url('../asset/banner.jpg') no-repeat center center;
   background-size: cover;
-  background-attachment: fixed; /* Makes the background image fixed while scrolling */
+  background-attachment: fixed; /* Keeps the background fixed during scroll */
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -57,11 +63,12 @@
   font-size: 1rem;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s; /* Added transform for smoother interaction */
 }
 
 .cta-button:hover {
   background-color: #218838;
+  transform: scale(1.05); /* Slightly enlarges the button on hover */
 }
 
 .cta-subtext {
@@ -89,6 +96,7 @@
   margin-bottom: 0.5rem;
 }
 
+/* Responsive design for smaller screens */
 @media (max-width: 768px) {
   .banner-title {
     font-size: 2.5rem;
@@ -121,5 +129,95 @@
   .cta-button {
     padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
+  }
+}
+
+/* Modal styles for login and sign-up */
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+  animation: slideIn 0.3s ease-in-out;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.modal-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.modal-button:hover {
+  background-color: #218838;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
