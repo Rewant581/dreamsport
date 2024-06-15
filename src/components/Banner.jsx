@@ -6,6 +6,9 @@ const Banner = () => {
   const [showSignUpModal, setShowSignUpModal] = useState(false);
   const [showLoginSuccess, setShowLoginSuccess] = useState(false);
   const [showDownloadPrompt, setShowDownloadPrompt] = useState(false);
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleDownload = () => {
     const link = document.createElement('a');
@@ -15,7 +18,7 @@ const Banner = () => {
     link.click();
     document.body.removeChild(link);
 
-    // Redirect to banner page (can be the home page)
+    // Redirect to the banner page (home page)
     window.location.href = '/';
   };
 
@@ -24,13 +27,16 @@ const Banner = () => {
     window.scrollTo(0, 0);
   };
 
-  const handleSignUpClose = () => {
+  const handleSignUpSubmit = (e) => {
+    e.preventDefault();
+    console.log('Sign Up:', { username, email, password });
     setShowSignUpModal(false);
     setShowLoginModal(true); // Show login modal after closing the sign-up modal
   };
 
   const handleLoginSubmit = (e) => {
     e.preventDefault();
+    console.log('Login:', { username, password });
     setShowLoginModal(false);
     setShowLoginSuccess(true);
   };
@@ -65,8 +71,20 @@ const Banner = () => {
             <span className="close" onClick={() => setShowLoginModal(false)}>&times;</span>
             <h2>Login</h2>
             <form onSubmit={handleLoginSubmit}>
-              <input type="text" placeholder="Username" required />
-              <input type="password" placeholder="Password" required />
+              <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
               <button type="submit" className="modal-button">Login</button>
             </form>
           </div>
@@ -77,12 +95,30 @@ const Banner = () => {
       {showSignUpModal && (
         <div className="modal">
           <div className="modal-content">
-            <span className="close" onClick={handleSignUpClose}>&times;</span>
+            <span className="close" onClick={() => setShowSignUpModal(false)}>&times;</span>
             <h2>Sign Up</h2>
-            <form>
-              <input type="text" placeholder="Username" required />
-              <input type="email" placeholder="Email" required />
-              <input type="password" placeholder="Password" required />
+            <form onSubmit={handleSignUpSubmit}>
+              <input
+                type="text"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+              <input
+                type="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
               <button type="submit" className="modal-button">Sign Up</button>
             </form>
           </div>
