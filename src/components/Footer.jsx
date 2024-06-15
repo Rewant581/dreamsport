@@ -13,7 +13,7 @@ const Footer = () => {
           <a href="/Legal" className="footer-link">Legalities</a>
           <a href="/Privacy" className="footer-link">Privacy Policy</a>
           <a href="/Responsible" className="footer-link">Responsible Gaming</a>
-          <a href="https://web.whatsapp.com/" className="footer-link" target="_blank" rel="noopener noreferrer">Contact Us</a>
+          {/* <a href="https://web.whatsapp.com/" className="footer-link" target="_blank" rel="noopener noreferrer">Contact Us</a> */}
           <a href="/Faq" className="footer-link">FAQ</a>
           <a href="/Addiction" className="footer-link">Game Addiction</a>
           <a href="/Terms" className="footer-link">Terms & Conditions</a>
@@ -31,7 +31,7 @@ const Footer = () => {
 
       {/* Disclaimer Section */}
       <div className="footer-disclaimer">
-      <h2>DISCLAIMER</h2>
+      <h2> DISCLAIMER </h2>
         <p>
           Geographical Restrictions Location Compliance: Our platform is not accessible from states where DFS is prohibited, including Andhra Pradesh, Assam, Nagaland, Odisha, Sikkim, and Telangana.
           <br />

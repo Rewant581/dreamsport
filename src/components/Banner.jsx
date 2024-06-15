@@ -1,23 +1,30 @@
 import React from 'react';
 import './Banner.css';
-// import objects3 from '../asset/objects3.png';
-// import objects4 from '../asset/objects4.png';
-// import objects5 from '../asset/objects5.png';
 
 const Banner = () => {
   const handleDownload = () => {
-    
+    // Create a link element
     const link = document.createElement('a');
-    link.href = '/index2.pdf';
-    link.download = 'DreamSport_App_Link.pdf'; 
+    
+    // Set the href attribute to the APK file location
+    link.href = '/dreamsport.apk'; // Ensure this path is correct and accessible
+    
+    // Set the download attribute with the desired file name
+    link.download = 'dreamsport.apk'; 
+    
+    // Append the link to the body
     document.body.appendChild(link);
+    
+    // Programmatically click the link to trigger the download
     link.click();
+    
+    // Remove the link from the document
     document.body.removeChild(link);
   };
 
   const handleTitleClick = (e) => {
     e.preventDefault(); // Prevent any default behavior
-    window.scrollTo(0, 0); // Optionally scroll to top if needed
+    window.scrollTo(0, 0); // Scroll to the top of the page
   };
 
   return (
@@ -29,24 +36,7 @@ const Banner = () => {
         {/* Call to Action Section */}
         <div className="call-to-action">
           <button className="cta-button" onClick={handleDownload}>Download the App</button>
-          {/* <p className="cta-subtext">Join now and get 15% bonus</p> */}
         </div>
-        
-        {/* Features Section */}
-        {/* <div className="features">
-          <div className="feature-item">
-            <img src={objects3} alt="Registrations" />
-            <p>5 LAKHS+<br />Registrations</p>
-          </div>
-          <div className="feature-item">
-            <img src={objects4} alt="Players" />
-            <p>3 LAKHS+<br />Play Everyday</p>
-          </div>
-          <div className="feature-item">
-            <img src={objects5} alt="Contests" />
-            <p>1000+<br />Everyday Contests</p>
-          </div>
-        </div> */}
       </div>
     </div>
   );
